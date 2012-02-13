@@ -33,7 +33,27 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)
+An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)\\
+
+We need to find the total number of outcomes where player $A$ wins and divide this by the total number of possible outcomes. \\
+Every win for Player $A$ will be a string black balls selected ending with the selection of a red ball. Since there are only 7 black balls there can only be 4 chances. After the 4th chance all the black balls have been selected which forces player $B$ to select a red. The following lists all the possible outcomes by color.\\
+
+\begin{tabular}{l c  l}
+Outcome & Winner & Number of Outcomes \\ \hline
+$(r)$ \quad & $A$ & outcomes = 3 \\
+$(b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 3 = 21 \\
+$(b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 3 = 126 \\
+$(b,b,b,r)$ \quad & $B$ & outcomes =  7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 3 = 630 \\
+$(b,b,b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 = 2520 \\
+$(b,b,b,b,b,b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 3 = 7560\\
+$(b,b,b,b,b,b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 2 $\cdot$ 3 = 15120\\
+$(b,b,b,b,b,b,b,b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 2 $\cdot$ 1 $\cdot$ 3 = 15120\\
+\end{tabular}
+
+\vspace{10pt}
+
+\noindent Now we may calculate the probability: 
+\[ P(A \; \text{wins}) = \frac{3+126+2520+15120}{3+21+126+630+2520+7560+15120+15120} = \frac{17769}{41100} \]
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -64,7 +84,10 @@ If 4 married couples are arranged in a row, find the probability that no husband
 \textbf{Class 18.440} - Chapter 2 Problem 54\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
- Compute the probability that a bridge hand is void in at least one suit. Note that the answer is not\[ \frac{\binom{4}{1} \binom{39}{13}}{\binom{52}{13}} \](Why not?)Hint: Use Proposition 4.4
+ Compute the probability that a bridge hand is void in at least one suit. Note that the answer is not
+\[ \frac{\binom{4}{1} \binom{39}{13}}{\binom{52}{13}} \]
+(Why not?)
+Hint: Use Proposition 4.4
  
  
 \vspace{15pt}
@@ -73,7 +96,17 @@ If 4 married couples are arranged in a row, find the probability that no husband
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-Let E, F, and G be three events. Find expressions for the events so that, of E, F, and G,\\(a) only E occurs;\\(b) both E and G, but not F, occur;\\(c) at least one of the events occurs;\\(d) at least two of the events occur;\\(e) all three events occur;\\(f) none of the events occurs;\\(g) at most one of the events occurs;\\(h) at most two of the events occur;\\(i) exactly two of the events occur;\\(j) at most three of the events occur.\\
+Let E, F, and G be three events. Find expressions for the events so that, of E, F, and G,\\
+(a) only E occurs;\\
+(b) both E and G, but not F, occur;\\
+(c) at least one of the events occurs;\\
+(d) at least two of the events occur;\\
+(e) all three events occur;\\
+(f) none of the events occurs;\\
+(g) at most one of the events occurs;\\
+(h) at most two of the events occur;\\
+(i) exactly two of the events occur;\\
+(j) at most three of the events occur.\\
 
 
 \vspace{15pt}
@@ -126,7 +159,15 @@ A cafeteria offers a three-course meal consisting of an entree, a starch, and a 
     \end{tabular}
 \end{center}
 
-\noindent A person is to choose one course from each category.\\(a) How many outcomes are in the sample space?\\(b) Let A be the event that ice cream is chosen.\\How many outcomes are in A?\\(c) Let B be the event that chicken is chosen.\\How many outcomes are in B?\\(d) List all the outcomes in the event AB.\\(e) Let C be the event that rice is chosen. How many outcomes are in C?\\(f) List all the outcomes in the event ABC\\
+\noindent A person is to choose one course from each category.\\
+(a) How many outcomes are in the sample space?\\
+(b) Let A be the event that ice cream is chosen.\\
+How many outcomes are in A?\\
+(c) Let B be the event that chicken is chosen.\\
+How many outcomes are in B?\\
+(d) List all the outcomes in the event AB.\\
+(e) Let C be the event that rice is chosen. How many outcomes are in C?\\
+(f) List all the outcomes in the event ABC\\
 
 
 
