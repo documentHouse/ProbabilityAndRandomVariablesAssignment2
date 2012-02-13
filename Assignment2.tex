@@ -20,7 +20,7 @@
 
 \title{Probability and Random Variables: \\ Assignment 1}
 \author{Andrew Rickert}
-\date{Started: January ??, 2011 \\ \hspace{1pt} Ended: January ??,  2011}                                           % Activate to display a given date or no date
+\date{Started: February ??, 2012 \\ \hspace{1pt} Ended: February ??,  2012}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -33,6 +33,7 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -40,6 +41,7 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+The second Earl of Yarborough is reported to have bet at odds of 1000 to 1 that a bridge hand of 13 cards would contain at least one card that is ten or higher. (By \emph{ten or higher} we mean that a card is either a ten, a jack, a queen, a king, or an ace.) Nowadays, we call a hand that has no cards higher than 9 a \emph{Yarborough}. What is the probability that a randomly selected bridge hand is a Yarborough?
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -47,23 +49,31 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+A group of 6 men and 6 women is randomly divided into 2 groups of size 6 each. What is the probability that both groups will have the same number of men?
+
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.440} - Chapter 2 Problem 53\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+If 4 married couples are arranged in a row, find the probability that no husband sits next to his wife.
+
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.440} - Chapter 2 Problem 54\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
+ Compute the probability that a bridge hand is void in at least one suit. Note that the answer is not\[ \frac{\binom{4}{1} \binom{39}{13}}{\binom{52}{13}} \](Why not?)Hint: Use Proposition 4.4
+ 
  
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.440} - Chapter 2 Theoretical Exercise 6\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
+
+Let E, F, and G be three events. Find expressions for the events so that, of E, F, and G,\\(a) only E occurs;\\(b) both E and G, but not F, occur;\\(c) at least one of the events occurs;\\(d) at least two of the events occur;\\(e) all three events occur;\\(f) none of the events occurs;\\(g) at most one of the events occurs;\\(h) at most two of the events occur;\\(i) exactly two of the events occur;\\(j) at most three of the events occur.\\
 
 
 \vspace{15pt}
@@ -72,6 +82,12 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Find the simplest expression for the following events:\\
+(a) $(E \cup F)(E \cup F^c)$\\
+(b) $(E \cup F)(E^c \cup F)(E \cup F^c)$\\
+(c) $(E \cup F)(F \cup G)$\\
+
+
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -79,6 +95,10 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Let $f_n$ denote the number of ways of tossing a coin $n$ times such that successive heads never appear. Argue that
+\[ f_n = f_{n-1} + f_{n-2} \quad n \ge 2, \; \text{where} \; f_0 \equiv 1, f_1 \equiv 2 \]
+
+Hint: How many outcomes are there that start with a head, and how many start with a tail? If $P_n$ denotes the probability that successive heads never appear when a coin is tossed $n$ times, find $P_n$ (in terms of $f_n$) when all possible outcomes of the $n$ tosses are assumed equally likely. Compute $P_{10}$.
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -86,6 +106,7 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Consider an experiment whose sample space consists of a countably infinite number of points. Show that not all points can be equally likely. Can all points have a positive probability of occurring?
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -93,12 +114,32 @@
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+A cafeteria offers a three-course meal consisting of an entree, a starch, and a dessert. The possible choices are given in the following table:
+
+\begin{center}
+    \begin{tabular}{ | l | l | }
+    \hline
+    Course & Choices  \\ \hline
+    Entree & Chick or roast beek    \\ %\hline
+    Starch & Pasta or rice or potatoes  \\ %\hline
+    Dessert & Ice cream or Jello or apple pie or a peach \\ \hline
+    \end{tabular}
+\end{center}
+
+\noindent A person is to choose one course from each category.\\(a) How many outcomes are in the sample space?\\(b) Let A be the event that ice cream is chosen.\\How many outcomes are in A?\\(c) Let B be the event that chicken is chosen.\\How many outcomes are in B?\\(d) List all the outcomes in the event AB.\\(e) Let C be the event that rice is chosen. How many outcomes are in C?\\(f) List all the outcomes in the event ABC\\
+
+
+
 \vspace{15pt}
 \begin{flushleft} 
 \textbf{Class 18.440} - Chapter 1 Self Test Problem/Exercise 14\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+Prove Boole’s inequality:
+\begin{equation*} 
+P\left( \cup_{i=1}^\infty A_i \right) \le \sum_{i=1}^\infty P(A_i)
+\end{equation*}
 
 \noindent \framebox[1.1\width]{\textbf{Part B}} \par
 
