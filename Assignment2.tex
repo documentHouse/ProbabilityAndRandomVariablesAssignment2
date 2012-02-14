@@ -20,7 +20,7 @@
 
 \title{Probability and Random Variables: \\ Assignment 1}
 \author{Andrew Rickert}
-\date{Started: February ??, 2012 \\ \hspace{1pt} Ended: February ??,  2012}                                           % Activate to display a given date or no date
+\date{Started: February 13, 2012 \\ \hspace{1pt} Ended: February ??,  2012}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -36,24 +36,43 @@
 An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)\\
 
 We need to find the total number of outcomes where player $A$ wins and divide this by the total number of possible outcomes. \\
-Every win for Player $A$ will be a string black balls selected ending with the selection of a red ball. Since there are only 7 black balls there can only be 4 chances. After the 4th chance all the black balls have been selected which forces player $B$ to select a red. The following lists all the possible outcomes by color.\\
+Every win for Player $A$ will be a string black balls selected ending with the selection of a red ball. Since there are only 7 black balls there can only be 4 chances. After the 4th chance all the black balls have been selected which forces player $B$ to sel. ect a red. The following lists all the possible outcomes by color.\\
 
-\begin{tabular}{l c  l}
-Outcome & Winner & Number of Outcomes \\ \hline
-$(r)$ \quad & $A$ & outcomes = 3 \\
-$(b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 3 = 21 \\
-$(b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 3 = 126 \\
-$(b,b,b,r)$ \quad & $B$ & outcomes =  7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 3 = 630 \\
-$(b,b,b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 = 2520 \\
-$(b,b,b,b,b,b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 3 = 7560\\
-$(b,b,b,b,b,b,b,r)$ \quad & $A$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 2 $\cdot$ 3 = 15120\\
-$(b,b,b,b,b,b,b,b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $\cdot$ 3 $\cdot$ 2 $\cdot$ 1 $\cdot$ 3 = 15120\\
+\begin{tabular}{l c }
+Outcome & Winner \\ \hline
+$(r)$ \quad & $A$ \\
+$(b,r)$ \quad & $B$  \\
+$(b,b,r)$ \quad & $A$ \\
+$(b,b,b,r)$ \quad & $B$  \\
+$(b,b,b,b,r)$ \quad & $A$  \\
+$(b,b,b,b,b,b,r)$ \quad & $B$ \\
+$(b,b,b,b,b,b,b,r)$ \quad & $A$ \\
+$(b,b,b,b,b,b,b,b,r)$ \quad & $B$ \\ \\
 \end{tabular}
 
-\vspace{10pt}
+\noindent There are four events where player $A$ wins:
+\begin{align*} 
+E_1 & = (r) \\ 
+E_2 & = (b,b,r) \\ 
+E_3 & = (b,b,b,b,r) \\ 
+E_4 & = (b,b,b,b,b,b,r)
+\end{align*}
+Because each of these events represents an ordered selection from the urn we have $E_i \cap E_j = \emptyset $ for $i,j \in \{1,2,3,4\}$. This shows that:
+\[ P(A \; \text{wins}) = P(E_1 \cup E_2 \cup E_3 \cup E_4) = P(E_1) + P(E_2) + P(E_3) + P(E_4) \]
+So, we must find the probabilities for each the events. 
 
-\noindent Now we may calculate the probability: 
-\[ P(A \; \text{wins}) = \frac{3+126+2520+15120}{3+21+126+630+2520+7560+15120+15120} = \frac{17769}{41100} \]
+For $E_1$ there are 3 possibilities for choosing a red ball and 10 possibilities total so $P(E_1) = \frac{3}{10}$. For $E_2$ we repeat this process. There are 7 choices for the first black ball then 6 choices for the second black ball. Finally there are 3 choices for the final red ball. So there are $7 \cdot 6 \cdot 3$ outcomes that result in the event $(b,b,r)$. Since there are 10, choices for the first ball, 9 choices for the second ball and 8 choices for the third ball we have $P(E_2) = \frac{7 \cdot 6 \cdot 3}{10 \cdot 9 \cdot 8}$. We may proceed similarly for the last two events to get
+
+\noindent There are four events where player $A$ wins:
+\begin{align*} 
+P(E_1) & = \frac{3}{10} \\ 
+P(E_2) & = \frac{7 \cdot 6 \cdot 3}{10 \cdot 9 \cdot 8} \\ 
+P(E_3) & = \frac{7 \cdot 6 \cdot 5 \cdot 4 \cdot 3}{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6} = \frac{ 5 \cdot 4 \cdot 3}{10 \cdot 9 \cdot 8} \\ 
+P(E_4) & = \frac{7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 3}{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4} =   \frac{3 \cdot 2 \cdot 3}{10 \cdot 9 \cdot 8}\\ \\
+\implies & P(E_1) + P(E_1) + P(E_1) + P(E_1) = \frac{3}{10} + \frac{7 \cdot 6 \cdot 3}{10 \cdot 9 \cdot 8} + \frac{ 5 \cdot 4 \cdot 3}{10 \cdot 9 \cdot 8} + \frac{3 \cdot 2 \cdot 3}{10 \cdot 9 \cdot 8}\\
+\implies &P(A \; \text{wins}) =  3\cdot \frac{9 \cdot 8 + 7 \cdot 6 + 5 \cdot 4 + 3 \cdot 2 }{10 \cdot 9 \cdot 8} = .58333
+\end{align*}
+
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -61,7 +80,13 @@ $(b,b,b,b,b,b,b,b,r)$ \quad & $B$ & outcomes = 7 $\cdot$ 6 $\cdot$ 5 $\cdot$ 4 $
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-The second Earl of Yarborough is reported to have bet at odds of 1000 to 1 that a bridge hand of 13 cards would contain at least one card that is ten or higher. (By \emph{ten or higher} we mean that a card is either a ten, a jack, a queen, a king, or an ace.) Nowadays, we call a hand that has no cards higher than 9 a \emph{Yarborough}. What is the probability that a randomly selected bridge hand is a Yarborough?
+The second Earl of Yarborough is reported to have bet at odds of 1000 to 1 that a bridge hand of 13 cards would contain at least one card that is ten or higher. (By \emph{ten or higher} we mean that a card is either a ten, a jack, a queen, a king, or an ace.) Nowadays, we call a hand that has no cards higher than 9 a \emph{Yarborough}. What is the probability that a randomly selected bridge hand is a Yarborough?\\
+
+If we consider each individual hand being drawn as equally likely then the probability will be the number of Yarboroughs divided by the total number of possible hands. \\
+There are $\binom{52}{13}$ possible 13 card hands. Since there are 4 each of the 10, jack, queen, king, ace, there are 52 - 20 = 32 cards from which a Yarborough can be drawn. So the probability of a Yarborough is 
+\[ P(\text{Yarborough}) = \frac{\binom{32}{13}}{\binom{52}{13}} \backsimeq 0.000547 \]
+
+\noindent So the chances are 1828:1 that a Yarborough will be drawn. A good bet for the Earl.
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -69,7 +94,24 @@ The second Earl of Yarborough is reported to have bet at odds of 1000 to 1 that 
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-A group of 6 men and 6 women is randomly divided into 2 groups of size 6 each. What is the probability that both groups will have the same number of men?
+A group of 6 men and 6 women is randomly divided into 2 groups of size 6 each. What is the probability that both groups will have the same number of men?\\
+
+Since there are 6 men the only way they can be divided equally into two groups is to have 3 men in each group. Assuming each group is equally likely to be chosen the probability will be the number of ways three men can be placed in each group divided by the total number of possible groups.\\
+The number of possible groups will be the number of ways we can choose 6 people for the first group, $\binom{12}{6}$, then the number of ways we can choose the remaining 6 people for the second group, $\binom{6}{6}$. Since the first group and the second group are not distinguishable the total number of groups is:
+\[ \text{Total} = \frac{1}{2!}\binom{12}{6}\binom{6}{6} \]
+
+For the first group of three men there are $\binom{6}{3}$ ways to choose the men and $\binom{6}{3}$ ways to choose the women. Since the order of the choice is not relevant we have
+\[ \text{Group 1 Total} = \frac{1}{2!}\binom{6}{3}\binom{6}{3} \]
+
+Group 2 must choose from amount the remaining 3 men and 3 women, again the order in which are chosen is irrelevant so
+\[ \text{Group 2 Total} = \frac{1}{2!} \binom{3}{3} \binom{3}{3} \]
+
+Since the order in which the groups are chosen is irrelevant the total number of ways to chose the groups with 3 men is 
+
+\[ \text{3 Men Group total} = \frac{1}{2!} \left( \frac{1}{2!}\binom{6}{3}\binom{6}{3} \cdot \frac{1}{2!}\binom{3}{3}\binom{3}{3}   \right) \]
+
+So the probability is 
+\[ P(\text{3 men groups})= \frac{ \frac{1}{2!} \left( \frac{1}{2!}\binom{6}{3}\binom{6}{3} \cdot \frac{1}{2!}\binom{3}{3}\binom{3}{3}   \right)}{\frac{1}{2!}\binom{12}{6}\binom{6}{6}} = \frac{\binom{6}{3}^2}{4 \binom{12}{6}} = \frac{25}{66} \backsimeq 0.3788\]
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -77,7 +119,24 @@ A group of 6 men and 6 women is randomly divided into 2 groups of size 6 each. W
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-If 4 married couples are arranged in a row, find the probability that no husband sits next to his wife.
+\noindent If 4 married couples are arranged in a row, find the probability that no husband sits next to his wife.\\
+
+We let the event $E_i$ be the event that couple $i$ sits together. The probability that no husband sits next to his wife is the same as the probability that it doesn't happen that at least one husband sits with his wife. That is
+\[ P(\text{No husband sits with wife}) = P((E_1 \cup E_2 \cup E_3 \cup E_4)^c) = 1 - P(E_1 \cup E_2 \cup E_3 \cup E_4) \]
+
+\noindent Our goal is then to calculate $P(E_1 \cup E_2 \cup E_3 \cup E_4)$. We will use the inclusion-exclusion identity to finish the calculation so we will need to calculate the probabilities of the events one at time, two at time, etc. 
+
+The total number of seating arrangements is $8!$ by the basic counting principle. To calculate the probabilities of the events, one at a time, two at a time, etc. we need to find the number of arrangements that result in these events.\\
+When one couple sits together they take up two seats. The remaining 6 seats can be distributed to the left and/or right of the couple. If we let $x_1$ be the number seats on the left and $x_2$ be the number of seats on the right then the equation that determines the distribution of the empty seats is
+\[ x_1 + x_2 = 6\]
+The number of solutions to this equation where $x_1,x_2 \ge 0$ is $\binom{n+r -1}{r-1}$. Here $n = 6$ and $r = 2$ so there are $\binom{7}{1}$ distributions. For each distribution there are $6!$ ways to seat the remaining 6 people and $2!$ ways to seat the couple so we get
+\[ P(E_i) = \frac{\binom{7}{1} 6! 2! }{8!} = \frac{7\cdot 2}{8!}\]
+
+Now we seat two couples. There are most 4 seats to the left of couple 1, 4 seats between couples 1 and 2, and 4 seat to the right of couple 2. This leads to the following equation for the distribution of the empty seats.
+\[ x_1 + x_2 + x_3 = 4 \]
+The number of distributions is then $\binom{4+3-1}{3-1} = \binom{6}{2}$. For each distribution of seats there are $4!$ ways to arrange the remaining 4 people. For each arrangement there are also $2!$ arrangements of the two couples and $2!$ of the two people in each couple. This gives the probability as
+\[ P(E_i E_j) = \frac{\binom{6}{2} 4! 2! 2!  }{8!}\]
+
 
 \vspace{15pt}
 \begin{flushleft} 
