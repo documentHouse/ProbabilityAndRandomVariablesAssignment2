@@ -36,7 +36,7 @@
 An urn contains 3 red and 7 black balls. Players $A$ and $B$ withdraw balls from the urn consecutively until a red ball is selected. Find the probability that $A$ selects the red ball. ($A$ draws the first ball, then $B$, and so on. There is no replacement of the balls drawn.)\\
 
 We need to find the total number of outcomes where player $A$ wins and divide this by the total number of possible outcomes. \\
-Every win for Player $A$ will be a string black balls selected ending with the selection of a red ball. Since there are only 7 black balls there can only be 4 chances. After the 4th chance all the black balls have been selected which forces player $B$ to sel. ect a red. The following lists all the possible outcomes by color.\\
+Every win for Player $A$ will be a string black balls selected ending with the selection of a red ball. Since there are only 7 black balls there can only be 4 chances. After the 4th chance all the black balls have been selected which forces player $B$ to select a red. The following lists all the possible outcomes by color.\\
 
 \begin{tabular}{l c }
 Outcome & Winner \\ \hline
@@ -206,12 +206,12 @@ Let $E$, $F$, and $G$ be three events. Find expressions for the events so that, 
 \noindent (a) $E F^c G^c$\\
 \noindent (b) $E G F^c$\\
 \noindent (c) $E \cup F \cup G$\\
-\noindent (d) $E F \cup E G \cup F G \cup EFG$\\
+\noindent (d) $E F \cup E G \cup F G$\\
 \noindent (e) $E F G$\\
 \noindent (f) $(E \cup F \cup G)^c$\\
 \noindent (g) $E F^c G^c \cup E^c F G^c \cup E^c F^c G$\\
-\noindent (h) $E F G^c \cup E G F^c \cup E^c F G$\\
-\noindent (i) $?$\\
+\noindent (h) $(EFG)^c$\\%$E F G^c \cup E G F^c \cup E^c F G$\\
+\noindent (i) $E F G^c \cup E G F^c \cup F G E^c$\\
 \noindent (j) $E \cup F \cup G$\\
 
 
@@ -226,7 +226,28 @@ Find the simplest expression for the following events:\\
 (b) $(E \cup F)(E^c \cup F)(E \cup F^c)$\\
 (c) $(E \cup F)(F \cup G)$\\
 
+\noindent(a)
+\begin{align*}
+\hspace{16pt} (E \cup F)(E \cup F^c) &= E \cup (F F^c) \quad \text{By the distributive law}\\
+  				  &= E \cup \emptyset \quad \text{By the definition of the complement and intersection}\\
+				  &= E
+\end{align*}
 
+\noindent(b)
+\begin{align*}
+\qquad (E \cup F)(E^c \cup F) (E \cup F^c) &= (E E^c \cup F)(E \cup F^c)\quad \text{By the distributive law}\\
+  				  &= (\emptyset \cup F)(E \cup F^c) \quad \text{By the definition of the complement and intersection}\\
+				  &= F(E \cup F^c)\\
+				  &= F E \cup F F^c \quad \text{By the distributive law}\\
+				  &= F E \cup \emptyset \quad \text{By the definition of the complement and intersection}\\
+				  &= FE
+\end{align*}
+
+\noindent(c)
+\begin{align*}
+\hspace{-68pt}(E \cup F)(F \cup G) &= (E \cup F)(G \cup F) \quad \text{By the commutative law}\\
+  			        		   &= EG \cup F  \quad \text{By the distributive law}\\
+\end{align*}
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -237,7 +258,19 @@ Find the simplest expression for the following events:\\
 Let $f_n$ denote the number of ways of tossing a coin $n$ times such that successive heads never appear. Argue that
 \[ f_n = f_{n-1} + f_{n-2} \quad n \ge 2, \; \text{where} \; f_0 \equiv 1, f_1 \equiv 2 \]
 
-Hint: How many outcomes are there that start with a head, and how many start with a tail? If $P_n$ denotes the probability that successive heads never appear when a coin is tossed $n$ times, find $P_n$ (in terms of $f_n$) when all possible outcomes of the $n$ tosses are assumed equally likely. Compute $P_{10}$.
+Hint: How many outcomes are there that start with a head, and how many start with a tail? If $P_n$ denotes the probability that successive heads never appear when a coin is tossed $n$ times, find $P_n$ (in terms of $f_n$) when all possible outcomes of the $n$ tosses are assumed equally likely. Compute $P_{10}$.\\
+
+Consider a sequence of $n$ coin flips. This sequence either begins with a head or begins with a tail. This means that we can break the total number of outcomes, $f_n$, into the number of outcomes that start with a head, $A_n$ and the number of outcomes that start with a tails, $B_n$.
+\[ f_n = A_n + B_n \]
+
+For $B_n$ we notice that since the first element in all of the sequences is a tail the number of outcomes for $B_n$ is the number of outcomes for sequences starting after the first tails. There are $n-1$ coin flips, and since there are no restrictions on these sequences different from the sequence of $n$ coin flips we find that $B_n = f_{n-1}$.
+For a sequence to be among those in $A_n$ there is a further restriction. Because all the sequences in $A_n$ start with a head the second element must be a tails. This means the first two values are fixed and the remaining values are not restricted. By the logic of the previous paragraph this means that $A_n = f_{n-2}$. So we have shown that $f_n = f_{n-1} + f_{n-2}$.\\
+\indent To find the probability of not having successive heads in a flipping a coin $n$ times we need to divide the number of ways this can happen, $f_n$ by the number of possible coin flip sequences.
+Since there are two possibilities for each coin flip there are $2^n$ possible sequences of $n$ coin flips by the basic counting principle. If $E_n$ is the event of no successive heads in $n$ coin flips then the probability is:
+\[ P_n = P(E_n) = \frac{f_n}{2^n} \]
+
+Using the proven relationship for $f_n$ we can derive $f_{10}$ from $\{f_0, f_1,f_2,f_3,f_4,f_5,f_6,f_7,f_8,f_9,f_10 \}$ by adding the successive values to get $\{ 1,2,3,5,8,13,21,34,55,89,144\}$, so $f_{10} = 144$ and the probability is 
+\[ P_{10} = \frac{144}{2^{10}} = \frac{144}{1024}\]
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -245,7 +278,17 @@ Hint: How many outcomes are there that start with a head, and how many start wit
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-Consider an experiment whose sample space consists of a countably infinite number of points. Show that not all points can be equally likely. Can all points have a positive probability of occurring?
+Consider an experiment whose sample space consists of a countably infinite number of points. Show that not all points can be equally likely. Can all points have a positive probability of occurring? \\ 
+
+To show that it is not possible that an countably infinite set of points can be equally likely we let $i \in \mathbb{N}$ be an index for the elements in the sample space. This is possible since the sample space $S$ is countable infinite. Now let the $s_i$ be $i$th element in $S$  $P(\{ s_i \}) = b \ge 0$. So $b$ represents the probability for each point in the sample space. \\
+If we now calculate the probability:
+\[ P(S) = P(\cup_{i=1}^\infty \{ s_i \})  = \sum_{i = 1}^\infty P(\{s_i\}) =  \sum_{i = 1}^\infty b \]
+
+The probability axioms say that it must be true that $P(S) = 1$, if $b = 0$ then the above calculation shows that $P(S) = 0$. If $b \neq 0$ then the above calculation shows that $P(S) = \infty$. In all cases the assumption of uniform probability for a countably infinity sample space violates one of the axioms for the probability function so the assumption must be invalid.\\
+\indent A countably infinite sample space \emph{can} have positive probability for all points. If we have as our sample space $S = \{ s_1, s_2, s_3, \ldots \}$ and have $P(\{ s_i\}) = \frac{1}{2^i}$ then we have 
+\[ P(S) = P(\cup_{i=1}^\infty \{ s_i \})  = \sum_{i = 1}^\infty P(\{s_i\}) =  \sum_{i = 1}^\infty \frac{1}{2^i}  = 1\]
+It is also true that $\frac{1}{2^i} > 0$ for all $i \in \mathbb{N}$ so the probabilities are all positive.
+
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -259,7 +302,7 @@ A cafeteria offers a three-course meal consisting of an entree, a starch, and a 
     \begin{tabular}{ | l | l | }
     \hline
     Course & Choices  \\ \hline
-    Entree & Chick or roast beek    \\ %\hline
+    Entree & Chicken or roast beef   \\ %\hline
     Starch & Pasta or rice or potatoes  \\ %\hline
     Dessert & Ice cream or Jello or apple pie or a peach \\ \hline
     \end{tabular}
@@ -287,6 +330,12 @@ Prove Boole’s inequality:
 \begin{equation*} 
 P\left( \cup_{i=1}^\infty A_i \right) \le \sum_{i=1}^\infty P(A_i)
 \end{equation*}
+
+If we let $A_n = \cup_{i = 1}^n A_i$ then it is clear that $A_n$ is an increasing sequence of events since further unions only add to the number of elements in a set. If we have an increasing or decreasing family of sets then by theorem $6.1$ in the book we have 
+\[ P(\lim _{n \to \infty} A_n) = \lim_{n \to \infty} P(A_n) \]
+
+By a consequence of the inclusion - exclusion identity we have equation (4.1)
+\[ P(\cup_{i = 1}^n A_i) \le \sum_{i = 1}^n P(A_i) \]
 
 \noindent \framebox[1.1\width]{\textbf{Part B}} \par
 
