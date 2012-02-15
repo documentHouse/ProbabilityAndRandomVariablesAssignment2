@@ -130,13 +130,31 @@ The total number of seating arrangements is $8!$ by the basic counting principle
 When one couple sits together they take up two seats. The remaining 6 seats can be distributed to the left and/or right of the couple. If we let $x_1$ be the number seats on the left and $x_2$ be the number of seats on the right then the equation that determines the distribution of the empty seats is
 \[ x_1 + x_2 = 6\]
 The number of solutions to this equation where $x_1,x_2 \ge 0$ is $\binom{n+r -1}{r-1}$. Here $n = 6$ and $r = 2$ so there are $\binom{7}{1}$ distributions. For each distribution there are $6!$ ways to seat the remaining 6 people and $2!$ ways to seat the couple so we get
-\[ P(E_i) = \frac{\binom{7}{1} 6! 2! }{8!} = \frac{7\cdot 2}{8!}\]
+\[ P(E_i) = \frac{\binom{7}{1} 6! 2! }{8!} = \frac{7 \cdot 6! 2!}{8!} = \frac{7! 2!}{8!}\]
 
 Now we seat two couples. There are most 4 seats to the left of couple 1, 4 seats between couples 1 and 2, and 4 seat to the right of couple 2. This leads to the following equation for the distribution of the empty seats.
 \[ x_1 + x_2 + x_3 = 4 \]
-The number of distributions is then $\binom{4+3-1}{3-1} = \binom{6}{2}$. For each distribution of seats there are $4!$ ways to arrange the remaining 4 people. For each arrangement there are also $2!$ arrangements of the two couples and $2!$ of the two people in each couple. This gives the probability as
-\[ P(E_i E_j) = \frac{\binom{6}{2} 4! 2! 2!  }{8!}\]
+The number of distributions is then $\binom{4+3-1}{3-1} = \binom{6}{2}$. For each distribution of seats there are $4!$ ways to arrange the remaining 4 people. For each arrangement there are also $2!$ arrangements of the two couples and $2!2!$ ways to arrange the people in each couple. This gives the probability as
+\[ P(E_i E_j) = \frac{\binom{6}{2} 4! 2! 2! 2!}{8!} = \frac{6!2!2!}{8!}\]
+Similarly for three couples there are 2 empty spaces which can be left of couple 1, right of couple 3 or in between the couples. This leads to the equation
+\[ x_1 + x_2 + x_3 + x_4 = 2 \]
+There are $\binom{2 + 4 - 1}{4 - 1} = \binom{5}{3}$ possible distributions of the 4 spaces. There are 2! ways to distribute the two people not in couples. There are also $3!$ arrangements of the couples for any given distribution of spaces and $2!2!2!$ ways to arrange the people in each couple. This gives the following probability
+\[ P(E_i E_j E_k) = \frac{\binom{5}{3} 2! 3! 2! 2! 2!}{8!} = \frac{5!2!2!2!}{8!} \]
 
+For $P(E_1 E_2 E_3 E_4)$ there is only 1 way to distribute the zero spaces. There are $4!$ ways to arrange the couples and $2!2!2!2!$ ways to arrange the people in each couple so
+\[ P(E_1 E_2 E_3 E_4) = \frac{4! 2!2!2!2!}{8!} \]
+
+Note, that the probabilities are the same for each set of intersected events. For example \\$P(E_1) = P(E_2) = \ldots $ or $P(E_1 E_2 E_3) = P(E_2 E_3 E_4) = \ldots $\\
+By the inclusion exclusion principle we have
+\begin{eqnarray*}
+P(E_1 E_2 E_3 E_4) &=& \sum_{k=1}^4 P(E_i) - \sum_{i_1 < i_2} P(E_{i_1} E_{i_2}) + \sum_{i_1 < i_2 < i_3} P(E_{i_1} E_{i_2} E_{i_3}) - \sum_{i_1 < i_2 < i_3 < i_4} P(E_{i_1} E_{i_2} E_{i_3} E_{i_4})\\
+&=& \binom{4}{1} P(E_1) - \binom{4}{2} P(E_1 E_2) + \binom{4}{3} P(E_1 E_2 E_3) - \binom{4}{4} P(E_1 E_2 E_3 E_4) \\
+&=& 4 \cdot \frac{7! 2!}{8!} - 6 \cdot \frac{6!2!2!}{8!} + 4 \cdot \frac{5!2!2!2!}{8!} - \frac{4! 2!2!2!2!}{8!} \\
+&=& 1 - \frac{3}{7} + \frac{2}{21} - \frac{1}{105} = \frac{23}{35}
+\end{eqnarray*}
+This gives the answer:\\
+\[P(\text{No husband sits with wife}) = 1 - P(E_1 \cup E_2 \cup E_3 \cup E_4) = \frac{12}{35} \backsimeq 0.34286 \]
+\newpage
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -146,8 +164,26 @@ The number of distributions is then $\binom{4+3-1}{3-1} = \binom{6}{2}$. For eac
  Compute the probability that a bridge hand is void in at least one suit. Note that the answer is not
 \[ \frac{\binom{4}{1} \binom{39}{13}}{\binom{52}{13}} \]
 (Why not?)
-Hint: Use Proposition 4.4
+Hint: Use Proposition 4.4 \\
  
+The expression $ \frac{\binom{4}{1} \binom{39}{13}}{\binom{52}{13}} $ only calculates the probability of drawing a bridge hand miss exactly one suit. We need to find the probability it is missing one suit, two suit or three suits.\\
+We let $E_1,E_2,E_3,E_4$ be the events that a bridge hand is missing clubs,spades,hearts or diamonds respectively.\\
+The probability that one or more of the suits is missing is therefore $ P(E_1 \cup E_2 \cup E_3 \cup E_4)$. We will use the inclusion exclusion theorem to find this probability but in order to do this we need the probability of the events taken one at a time, two at time, etc.\\
+If there is one suit missing then there will be only 52-13 = 39 cards to chose a 13 card hand from. This gives the probability for events taken one at a time.
+\[ P(E_i) = \frac{\binom{39}{13}}{\binom{52}{13}}\]
+If there two suits missing then there will be only 52-26 = 26 cards to chose a 13 card hand from. This gives the probability for events taken one at a time.
+\[ P(E_i E_j) = \frac{\binom{26}{13}}{\binom{52}{13}}\]
+ If there are three suits missing there there are only 13 cards from which to make a 13 card hand. That is, there is one such hand to made. The probability is
+\[ P(E_i E_j E_k) = \frac{\binom{13}{13}}{\binom{52}{13}} = \frac{1}{\binom{52}{13}}\] 
+ There is no 13 card hand missing all of the suits since this would eliminate all of the cards so
+ \[ P(E_1 E_2 E_3 E_4) = 0 \]
+ 
+We may now apply the inclusion exclusion theorem to get the probability for drawing a hand missing at least one suit
+ \begin{eqnarray*}
+P(E_1 E_2 E_3 E_4) &=& \sum_{k=1}^4 P(E_i) - \sum_{i_1 < i_2} P(E_{i_1} E_{i_2}) + \sum_{i_1 < i_2 < i_3} P(E_{i_1} E_{i_2} E_{i_3}) - \sum_{i_1 < i_2 < i_3 < i_4} P(E_{i_1} E_{i_2} E_{i_3} E_{i_4})\\
+&=& \binom{4}{1} P(E_1) - \binom{4}{2} P(E_1 E_2) + \binom{4}{3} P(E_1 E_2 E_3) - \binom{4}{4} P(E_1 E_2 E_3 E_4) \\
+&=& 4 \frac{\binom{39}{13}}{\binom{52}{13}} - 6 \frac{\binom{26}{13}}{\binom{52}{13}} + 4  \frac{1}{\binom{52}{13}} \backsimeq 0.0511
+\end{eqnarray*}
  
 \vspace{15pt}
 \begin{flushleft} 
@@ -155,9 +191,9 @@ Hint: Use Proposition 4.4
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
-Let E, F, and G be three events. Find expressions for the events so that, of E, F, and G,\\
-(a) only E occurs;\\
-(b) both E and G, but not F, occur;\\
+Let $E$, $F$, and $G$ be three events. Find expressions for the events so that, of $E$, $F$, and $G$,\\
+(a) only $E$ occurs;\\
+(b) both $E$ and $G$, but not $F$, occur;\\
 (c) at least one of the events occurs;\\
 (d) at least two of the events occur;\\
 (e) all three events occur;\\
@@ -166,6 +202,17 @@ Let E, F, and G be three events. Find expressions for the events so that, of E, 
 (h) at most two of the events occur;\\
 (i) exactly two of the events occur;\\
 (j) at most three of the events occur.\\
+
+\noindent (a) $E F^c G^c$\\
+\noindent (b) $E G F^c$\\
+\noindent (c) $E \cup F \cup G$\\
+\noindent (d) $E F \cup E G \cup F G \cup EFG$\\
+\noindent (e) $E F G$\\
+\noindent (f) $(E \cup F \cup G)^c$\\
+\noindent (g) $E F^c G^c \cup E^c F G^c \cup E^c F^c G$\\
+\noindent (h) $E F G^c \cup E G F^c \cup E^c F G$\\
+\noindent (i) $?$\\
+\noindent (j) $E \cup F \cup G$\\
 
 
 \vspace{15pt}
