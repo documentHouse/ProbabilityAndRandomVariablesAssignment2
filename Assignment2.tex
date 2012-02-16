@@ -270,7 +270,8 @@ Since there are two possibilities for each coin flip there are $2^n$ possible se
 \[ P_n = P(E_n) = \frac{f_n}{2^n} \]
 
 Using the proven relationship for $f_n$ we can derive $f_{10}$ from $\{f_0, f_1,f_2,f_3,f_4,f_5,f_6,f_7,f_8,f_9,f_10 \}$ by adding the successive values to get $\{ 1,2,3,5,8,13,21,34,55,89,144\}$, so $f_{10} = 144$ and the probability is 
-\[ P_{10} = \frac{144}{2^{10}} = \frac{144}{1024}\]
+\[ P_{10} = \frac{144}{2^{10}} = \frac{144}{1024} \backsimeq .1406\]
+\newpage
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -318,7 +319,14 @@ How many outcomes are in B?\\
 (e) Let C be the event that rice is chosen. How many outcomes are in C?\\
 (f) List all the outcomes in the event ABC\\
 
-
+\noindent Let $N(E)$ be the number of outcomes in the event $E$.\\
+\noindent (a) 2 Entrees, 3 starches, 4 deserts. Basic counting principle says total number of outcomes is $2 \cdot 3 \cdot 4 = 24$. 
+\noindent (b) There are 2 entrees to select then 3 starches to select so $N(A) = 2 \cdot 3 = 6$ outcomes.\\
+\noindent (c) There are 3 starches and 4 desserts to select so $N(B) = 3 \cdot 4 = 12$ outcomes.\\
+\noindent (d) Since is $A$ is the event that ice cream is chosen and $B$ is the event that chicken is chose $A B$ is the event that ice cream and chicken are chosen. The Starch is the only free variable so the outcomes are \\
+\[\{ (\text{Chicken,pasta,Ice Cream}),(\text{Chicken,rice,Ice Cream}),(\text{Chicken,potatoes,Ice Cream}) \}\]
+(e) There are 2 entrees and 4 desserts to chose from so $N(C) = 2 \cdot 4 = 8$ outcomes.\\
+(f) The event $A B C$ is the event that Chicken, rice, and ice cream are chosen. So, the only outcome is \[ \{ (\text{Chicken, Rice, Ice Cream})\} \]
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -334,11 +342,27 @@ P\left( \cup_{i=1}^\infty A_i \right) \le \sum_{i=1}^\infty P(A_i)
 If we let $A_n = \cup_{i = 1}^n A_i$ then it is clear that $A_n$ is an increasing sequence of events since further unions only add to the number of elements in a set. If we have an increasing or decreasing family of sets then by theorem $6.1$ in the book we have 
 \[ P(\lim _{n \to \infty} A_n) = \lim_{n \to \infty} P(A_n) \]
 
-By a consequence of the inclusion - exclusion identity we have equation (4.1)
+\noindent By a consequence of the inclusion - exclusion identity we have equation (4.1)
 \[ P(\cup_{i = 1}^n A_i) \le \sum_{i = 1}^n P(A_i) \]
+
+\noindent With theorem 6.1 and equation (4.1) we can calculate
+\begin{eqnarray*}
+P\left( \cup_{i=1}^\infty A_i \right) &=& P(\lim_{n \to \infty} \cup_{i = 1}^n A_i) \\
+						   &=& P(\lim_{n \to \infty} A_n) \\
+						   &=& \lim_{n \to \infty} P(A_n) \quad \text{by theorem 6.1}\\						    
+						   &=& \lim_{n \to \infty} P(\cup_{i = 1}^n A_i)\\
+						   &\le& \lim_{n \to \infty} \sum_{i = 1}^n P(A_i) \quad \text{by equation 4.1}\\
+						   &=& \sum_{i = 1}^\infty P(A_i)
+\end{eqnarray*}
+So we have shown $P\left( \cup_{i=1}^\infty A_i \right) \le \sum_{i=1}^\infty P(A_i)$ which is the result. \\ 
+\newpage
 
 \noindent \framebox[1.1\width]{\textbf{Part B}} \par
 
-(Just for fun – not to hand in.) The following is a popular and rather instructive puzzle. A standard deck of 52 cards (26 red and 26 black) is shuffled so that all orderings are equally likely. We then play the following game: I begin turning the cards over one at a time so that you can see them. At some point (before I have turned over all 52 cards) you say “I’m ready!” At this point I turn over the next card and if the card is red, you receive one dollar; otherwise you receive nothing. You would like to design a strategy to maximize the probability that you will receive the dollar. How should you decide when to say “I’m ready”?
+(Just for fun - not to hand in.) The following is a popular and rather instructive puzzle. A standard deck of 52 cards (26 red and 26 black) is shuffled so that all orderings are equally likely. We then play the following game: I begin turning the cards over one at a time so that you can see them. At some point (before I have turned over all 52 cards) you say “I’m ready!” At this point I turn over the next card and if the card is red, you receive one dollar; otherwise you receive nothing. You would like to design a strategy to maximize the probability that you will receive the dollar. How should you decide when to say “I’m ready”?\\
+
+If we have seen $i$ red cards and $j$ black cards then there are $52-i-j$ cards left. The number of patterns that begin with a red card are the number of ways of choosing positions for the remaining $26-i-1$ red cards from the total $52-i-j-1$ cards, that is $\binom{52-i-j-1}{26-i-1}$. The total number of patterns orderings of red or black cards is then $\binom{52-i-j}{26-i}$. The probability that the next card is red is therefore:
+\[ P(\text{card}_{i+j+1} \; \text{is red}) = \frac{\binom{52-i-j-1}{26-i-1}}{\binom{52-i-j}{26-i}} \]
+
 
 \end{document}  
