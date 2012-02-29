@@ -18,9 +18,9 @@
 %\renewcommand{\textfraction}{0.07}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\title{Probability and Random Variables: \\ Assignment 1}
+\title{Probability and Random Variables: \\ Assignment 2}
 \author{Andrew Rickert}
-\date{Started: February 13, 2012 \\ \hspace{1pt} Ended: February ??,  2012}                                           % Activate to display a given date or no date
+\date{Started: February 13, 2012 \\ \hspace{1pt} Ended: February 29,  2012}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -100,18 +100,18 @@ Since there are 6 men the only way they can be divided equally into two groups i
 The number of possible groups will be the number of ways we can choose 6 people for the first group, $\binom{12}{6}$, then the number of ways we can choose the remaining 6 people for the second group, $\binom{6}{6}$. Since the first group and the second group are not distinguishable the total number of groups is:
 \[ \text{Total} = \frac{1}{2!}\binom{12}{6}\binom{6}{6} \]
 
-For the first group of three men there are $\binom{6}{3}$ ways to choose the men and $\binom{6}{3}$ ways to choose the women. Since the order of the choice is not relevant we have
-\[ \text{Group 1 Total} = \frac{1}{2!}\binom{6}{3}\binom{6}{3} \]
+For the first group of three men there are $\binom{6}{3}$ ways to choose the men and $\binom{6}{3}$ ways to choose the women. So we have
+\[ \text{Group 1 Total} = \binom{6}{3}\binom{6}{3} \]
 
-Group 2 must choose from amount the remaining 3 men and 3 women, again the order in which are chosen is irrelevant so
-\[ \text{Group 2 Total} = \frac{1}{2!} \binom{3}{3} \binom{3}{3} \]
+Group 2 must choose from among the remaining 3 men and 3 women, so
+\[ \text{Group 2 Total} = \binom{3}{3} \binom{3}{3} \]
 
 Since the order in which the groups are chosen is irrelevant the total number of ways to chose the groups with 3 men is 
 
-\[ \text{3 Men Group total} = \frac{1}{2!} \left( \frac{1}{2!}\binom{6}{3}\binom{6}{3} \cdot \frac{1}{2!}\binom{3}{3}\binom{3}{3}   \right) \]
+\[ \text{3 Men Group total} = \frac{1}{2!} \left( \binom{6}{3}\binom{6}{3} \cdot \binom{3}{3}\binom{3}{3}   \right) =   \binom{6}{3}\binom{6}{3} \]
 
 So the probability is 
-\[ P(\text{3 men groups})= \frac{ \frac{1}{2!} \left( \frac{1}{2!}\binom{6}{3}\binom{6}{3} \cdot \frac{1}{2!}\binom{3}{3}\binom{3}{3}   \right)}{\frac{1}{2!}\binom{12}{6}\binom{6}{6}} = \frac{\binom{6}{3}^2}{4 \binom{12}{6}} = \frac{25}{66} \backsimeq 0.3788\]
+\[ P(\text{3 men groups})= \frac{ \frac{1}{2!}\binom{6}{3}\binom{6}{3}}{\frac{1}{2!}\binom{12}{6}} = \frac{\binom{6}{3}^2}{\binom{12}{6}} = \frac{100}{231} \backsimeq 0.4329 \]
 
 \vspace{15pt}
 \begin{flushleft} 
@@ -293,7 +293,7 @@ It is also true that $\frac{1}{2^i} > 0$ for all $i \in \mathbb{N}$ so the proba
 
 \vspace{15pt}
 \begin{flushleft} 
-\textbf{Class 18.440} - Chapter 1 Self Test Problem/Exercise 1\\
+\textbf{Class 18.440} - Chapter 2 Self Test Problem/Exercise 1\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
@@ -330,7 +330,7 @@ How many outcomes are in B?\\
 
 \vspace{15pt}
 \begin{flushleft} 
-\textbf{Class 18.440} - Chapter 1 Self Test Problem/Exercise 14\\
+\textbf{Class 18.440} - Chapter 2 Self Test Problem/Exercise 14\\
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
@@ -362,7 +362,7 @@ So we have shown $P\left( \cup_{i=1}^\infty A_i \right) \le \sum_{i=1}^\infty P(
 (Just for fun - not to hand in.) The following is a popular and rather instructive puzzle. A standard deck of 52 cards (26 red and 26 black) is shuffled so that all orderings are equally likely. We then play the following game: I begin turning the cards over one at a time so that you can see them. At some point (before I have turned over all 52 cards) you say “I’m ready!” At this point I turn over the next card and if the card is red, you receive one dollar; otherwise you receive nothing. You would like to design a strategy to maximize the probability that you will receive the dollar. How should you decide when to say “I’m ready”?\\
 
 If we have seen $i$ red cards and $j$ black cards then there are $52-i-j$ cards left. The number of patterns that begin with a red card are the number of ways of choosing positions for the remaining $26-i-1$ red cards from the total $52-i-j-1$ cards, that is $\binom{52-i-j-1}{26-i-1}$. The total number of patterns orderings of red or black cards is then $\binom{52-i-j}{26-i}$. The probability that the next card is red is therefore:
-\[ P(\text{card}_{i+j+1} \; \text{is red}) = \frac{\binom{52-i-j-1}{26-i-1}}{\binom{52-i-j}{26-i}} \]
+\[ P(\text{card}_{i+j+1} \; \text{is red}) = \frac{\binom{52-i-j-1}{26-i-1}}{\binom{52-i-j}{26-i}} = \frac{26-i}{52-i-j}\]
 
 
 \end{document}  
